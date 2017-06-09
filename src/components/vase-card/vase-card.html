@@ -1,0 +1,36 @@
+<!-- Generated template for the VaseCardComponent component -->
+<ion-card>
+  <ion-card-content>
+    <ion-card-title>
+      Vaso {{vase.id}}
+    </ion-card-title>
+    <ion-list>
+      <ion-list-header>
+        Condições atuais:
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name="thermometer" item-start></ion-icon>
+        Temperatura: {{vase.temperature}}ºC
+      </ion-item>
+      <ion-item>
+        <ion-icon name="sunny" item-start></ion-icon>
+        Iluminação: {{vase.luminosity}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="water" item-start></ion-icon>
+        Umidade {{vase.humidity}}%
+      </ion-item>
+      <ion-list-header>
+        Condições ideais:
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name="sunny" item-start></ion-icon>
+        Iluminação min{{vase.minLuminosity}}
+      </ion-item>
+      <ion-item>
+        <ion-icon name="water" item-start></ion-icon>
+        Umidade {{vase.minHumidity}}-{{vase.maxHumidity}}%
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
