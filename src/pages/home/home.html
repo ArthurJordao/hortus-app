@@ -6,16 +6,7 @@
 
 <ion-content padding>
   <h2>Vasos</h2>
-  <ion-card>
-    <ion-card-content>
-      <ion-card-title>
-        Vaso 1
-      </ion-card-title>
-      <ul>
-        <li>25ºC</li>
-        <li>Iluminação boa</li>
-        <li>Umidade 72%</li>
-      </ul>
-    </ion-card-content>
-  </ion-card>
+  <div *ngFor="let vase of vases">
+    <vase-card [vase]="vase"></vase-card>
+  </div>
 </ion-content>
