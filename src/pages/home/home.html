@@ -5,8 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Vasos</h2>
-  <div *ngFor="let vase of vases">
-    <vase-card [vase]="vase"></vase-card>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-md-6 col-xl-4 *ngFor="let vase of vases">
+        <vase-card [vase]="vase"></vase-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
