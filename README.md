@@ -1,6 +1,8 @@
 # hortus-app
 Aplicação da HORTUS feito com ionic.
 ## TODO:
+- [x] Visualização de dados no app.
+- [ ] Integração com o Arduíno.
 - [ ] Modificar quantidade de leituras feitas pelo arduíno.
 - [ ] Modificar opções de irrigação.
 - [ ] Leitura on demand.
