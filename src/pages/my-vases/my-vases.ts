@@ -4,10 +4,10 @@ import {VaseProvider} from "../../providers/vase/vase";
 import {Vase} from "../../models/vase";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'my-vases',
+  templateUrl: 'my-vases.html'
 })
-export class HomePage {
+export class MyVases {
   vases: Vase[];
 
   constructor(public navCtrl: NavController, vaseProvider: VaseProvider) {

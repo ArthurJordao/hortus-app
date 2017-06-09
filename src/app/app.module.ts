@@ -5,20 +5,20 @@ import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { VaseProvider } from '../providers/vase/vase';
 import { VaseCardComponent } from '../components/vase-card/vase-card';
+import { MyVases } from "../pages/my-vases/my-vases";
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
+    MyVases,
     TabsPage,
     VaseCardComponent
   ],
@@ -31,7 +31,7 @@ import { VaseCardComponent } from '../components/vase-card/vase-card';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
+    MyVases,
     TabsPage
   ],
   providers: [
