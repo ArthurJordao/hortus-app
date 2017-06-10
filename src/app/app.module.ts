@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { VaseProvider } from '../providers/vase/vase';
 import { VaseCardComponent } from '../components/vase-card/vase-card';
 import { MyVasesPage } from "../pages/my-vases/my-vases";
+import { ProfileProvider } from '../providers/profile/profile';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MyVasesPage } from "../pages/my-vases/my-vases";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VaseProvider
+    VaseProvider,
+    ProfileProvider
   ]
 })
 export class AppModule {}

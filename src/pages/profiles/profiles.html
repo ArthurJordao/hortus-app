@@ -7,5 +7,33 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-item>
+    <ion-label>Adicionar perfis</ion-label>
+    <ion-toggle [(ngModel)]="showForm"></ion-toggle>
+  </ion-item>
+  <form (ngSubmit)="addProfile()" [hidden]="!showForm">
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="newProfile.name" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Humidade Máxima</ion-label>
+      <ion-input type="number" [(ngModel)]="newProfile.maxHumidity" name="maxHumidity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Humidade Mínima</ion-label>
+      <ion-input type="number" [(ngModel)]="newProfile.minHumidity" name="minHumidity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Iluminação Mínima</ion-label>
+      <ion-input type="number" [(ngModel)]="newProfile.minLuminosity" name="minLuminosity"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Adiciona perfil</button>
+  </form>
+  <ion-list>
+    <ion-item *ngFor="let profile of profiles">
+      {{profile.name}}
+    </ion-item>
+  </ion-list>
 
 </ion-content>

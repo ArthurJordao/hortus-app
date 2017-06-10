@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {Vase} from "../../models/vase";
+import { ProfileProvider } from "../../providers/profile/profile";
 
 /**
  * Generated class for the VaseCardComponent component.
@@ -11,11 +12,15 @@ import {Vase} from "../../models/vase";
   selector: 'vase-card',
   templateUrl: 'vase-card.html'
 })
-export class VaseCardComponent {
+export class VaseCardComponent implements OnInit {
 
   @Input() vase: Vase
 
-  constructor() {
+  constructor(private profileProvide: ProfileProvider) {
+  }
+
+  ngOnInit(): void {
+    this.vase.profile = this.profileProvide.getProfileById(this.vase.profile.id);
   }
 
 }
