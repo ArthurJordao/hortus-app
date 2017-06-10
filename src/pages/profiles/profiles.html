@@ -1,14 +1,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Perfis
+      Plantas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-item>
-    <ion-label>Adicionar perfis</ion-label>
+    <ion-label>Adicionar planta</ion-label>
     <ion-toggle [(ngModel)]="showForm"></ion-toggle>
   </ion-item>
   <form (ngSubmit)="addProfile()" [hidden]="!showForm">
