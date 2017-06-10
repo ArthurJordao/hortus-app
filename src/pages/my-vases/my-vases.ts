@@ -7,7 +7,7 @@ import {Vase} from "../../models/vase";
   selector: 'my-vases',
   templateUrl: 'my-vases.html'
 })
-export class MyVases {
+export class MyVasesPage {
   vases: Vase[];
 
   constructor(public navCtrl: NavController, vaseProvider: VaseProvider) {

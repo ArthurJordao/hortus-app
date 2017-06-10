@@ -21,15 +21,15 @@
         Umidade {{vase.humidity}}%
       </ion-item>
       <ion-list-header>
-        Condições ideais:
+        Perfil - {{vase.profile.name}}
       </ion-list-header>
       <ion-item>
         <ion-icon name="sunny" item-start></ion-icon>
-        Iluminação min: {{vase.minLuminosity}}
+        Iluminação min: {{vase.profile.minLuminosity}}
       </ion-item>
       <ion-item>
         <ion-icon name="water" item-start></ion-icon>
-        Umidade {{vase.minHumidity}}-{{vase.maxHumidity}}%
+        Umidade {{vase.profile.minHumidity}}-{{vase.profile.maxHumidity}}%
       </ion-item>
     </ion-list>
   </ion-card-content>
