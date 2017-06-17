@@ -14,7 +14,7 @@ import { ProfileProvider } from "../../providers/profile/profile";
 })
 export class VaseCardComponent implements OnInit {
 
-  @Input() vase: Vase
+  @Input() vase: Vase;
 
   constructor(private profileProvide: ProfileProvider) {
   }
