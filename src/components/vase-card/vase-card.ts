@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Vase} from "../../models/vase";
 import { ProfileProvider } from "../../providers/profile/profile";
+import { Profile } from "../../models/profile";
 
 /**
  * Generated class for the VaseCardComponent component.
@@ -13,6 +14,7 @@ import { ProfileProvider } from "../../providers/profile/profile";
   templateUrl: 'vase-card.html'
 })
 export class VaseCardComponent implements OnInit {
+  profiles: Profile[];
 
   @Input() vase: Vase;
 
@@ -21,6 +23,7 @@ export class VaseCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.vase.profile = this.profileProvide.getProfileById(this.vase.profile.id);
+    this.profiles = this.profileProvide.getProfiles();
   }
 
 }

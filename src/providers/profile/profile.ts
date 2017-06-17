@@ -10,11 +10,11 @@ import { Profile } from "../../models/profile";
 */
 @Injectable()
 export class ProfileProvider {
-  maxId: 1;
+  maxId: 2;
   profiles: Profile[];
 
   constructor() {
-    this.profiles = [new Profile(1, 80, 50, 30, 'alface')];
+    this.profiles = [new Profile(1, 80, 50, 30, 'alface'), new Profile(2, 90, 40, 25, 'ervilha')];
   }
 
   public getProfiles(): Profile[] {

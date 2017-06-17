@@ -16,7 +16,7 @@ export class VaseProvider {
     this.vases = [];
     let profile: Profile = new Profile(1);
     this.vases.push(new Vase(1, 35, 33, 23, profile));
-    this.vases.push(new Vase(2, 40, 44, 24, profile));
+    this.vases.push(new Vase(2, 40, 44, 24, new Profile(2)));
     this.vases.push(new Vase(3, 23, 55, 25, profile));
   }
   private vases: Vase[];

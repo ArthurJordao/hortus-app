@@ -20,9 +20,12 @@
         <ion-icon name="water" item-start></ion-icon>
         Umidade {{vase.humidity}}%
       </ion-item>
-      <ion-list-header>
-        Planta - {{vase.profile.name}}
-      </ion-list-header>
+      <ion-item>
+        <ion-label>Planta</ion-label>
+        <ion-select [(ngModel)]="vase.profile">
+          <ion-option *ngFor="let profile of profiles" [value]="profile">{{profile.name}}</ion-option>
+        </ion-select>
+      </ion-item>
       <ion-item>
         <ion-icon name="sunny" item-start></ion-icon>
         Iluminação min: {{vase.profile.minLuminosity}}
