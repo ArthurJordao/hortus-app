@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ProfileProvider } from "../../providers/profile/profile";
-import { Profile } from "../../models/profile";
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+
+export class Profile {
+    public maxHumidity: number;
+    public minHumidity: number;
+    public minLuminosity: number;
+    public name: string;
+}
 
 @Component({
   selector: 'profiles',
@@ -9,17 +15,18 @@ import { Profile } from "../../models/profile";
 })
 export class ProfilesPage {
   newProfile: Profile;
-  profiles: Profile[];
+  profiles: FirebaseListObservable<Profile[]>;
   showForm: boolean;
 
-  constructor(public navCtrl: NavController, private profileProvider: ProfileProvider) {
-    this.profiles = profileProvider.getProfiles();
+  constructor(public navCtrl: NavController, private afd: AngularFireDatabase) {
+    this.profiles = this.afd.list('/profiles');
     this.newProfile = new Profile();
   }
 
   addProfile() {
-    this.profileProvider.addProfile(this.newProfile);
-    this.newProfile = new Profile();
+    this.profiles.push(this.newProfile).then(() => {
+      this.newProfile = new Profile();
+    })
   }
 
 }

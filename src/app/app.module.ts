@@ -14,6 +14,18 @@ import { VaseCardComponent } from '../components/vase-card/vase-card';
 import { MyVasesPage } from "../pages/my-vases/my-vases";
 import { ProfileProvider } from '../providers/profile/profile';
 
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database"
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyDhPG9j5ZCgqv0b9rjkUUoEJEP3HFicXOI",
+    authDomain: "hortus-8a27a.firebaseapp.com",
+    databaseURL: "https://hortus-8a27a.firebaseio.com",
+    projectId: "hortus-8a27a",
+    storageBucket: "hortus-8a27a.appspot.com",
+    messagingSenderId: "162411921846"
+  };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -25,7 +37,9 @@ import { ProfileProvider } from '../providers/profile/profile';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

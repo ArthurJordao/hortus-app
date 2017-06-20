@@ -23,7 +23,7 @@
       <ion-item>
         <ion-label>Planta</ion-label>
         <ion-select [(ngModel)]="vase.profile">
-          <ion-option *ngFor="let profile of profiles" [value]="profile">{{profile.name}}</ion-option>
+          <ion-option *ngFor="let profile of profiles | async" [value]="profile">{{profile.name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>

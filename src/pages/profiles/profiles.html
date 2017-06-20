@@ -14,7 +14,8 @@
   <form (ngSubmit)="addProfile()" [hidden]="!showForm">
     <ion-item>
       <ion-label>Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="newProfile.name" name="name"></ion-input>
+      <ion-input type="text" required [(ngModel)]="newProfile.name" name="name"
+       minlength="4" maxlength="24" #name="ngModel"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Humidade Máxima</ion-label>
@@ -31,7 +32,7 @@
     <button ion-button type="submit" block>Adiciona perfil</button>
   </form>
   <ion-list>
-    <ion-item *ngFor="let profile of profiles">
+    <ion-item *ngFor="let profile of profiles | async">
       {{profile.name}}
     </ion-item>
   </ion-list>

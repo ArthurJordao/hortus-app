@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Vase} from "../../models/vase";
-import { ProfileProvider } from "../../providers/profile/profile";
-import { Profile } from "../../models/profile";
+import { Profile } from "../../pages/profiles/profiles";
+import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 
 /**
  * Generated class for the VaseCardComponent component.
@@ -14,16 +14,17 @@ import { Profile } from "../../models/profile";
   templateUrl: 'vase-card.html'
 })
 export class VaseCardComponent implements OnInit {
-  profiles: Profile[];
+  profiles: FirebaseListObservable<Profile[]>;
 
   @Input() vase: Vase;
 
-  constructor(private profileProvide: ProfileProvider) {
+  constructor(private afd: AngularFireDatabase) {
   }
 
   ngOnInit(): void {
-    this.vase.profile = this.profileProvide.getProfileById(this.vase.profile.id);
-    this.profiles = this.profileProvide.getProfiles();
+    this.profiles = this.afd.list('/profiles');
+    let profile: Profile = new Profile();
+    this.vase.profile = profile;
   }
 
 }

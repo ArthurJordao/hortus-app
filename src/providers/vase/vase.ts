@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Vase} from "../../models/vase";
-import { Profile } from "../../models/profile";
+import { Profile } from "../../pages/profiles/profiles";
 
 /*
   Generated class for the VaseProvider provider.
@@ -14,10 +14,9 @@ export class VaseProvider {
 
   constructor() {
     this.vases = [];
-    let profile: Profile = new Profile(1);
-    this.vases.push(new Vase(1, 35, 33, 23, profile));
-    this.vases.push(new Vase(2, 40, 44, 24, new Profile(2)));
-    this.vases.push(new Vase(3, 23, 55, 25, profile));
+    this.vases.push(new Vase(1, 35, 33, 23, new Profile()));
+    this.vases.push(new Vase(2, 40, 44, 24, new Profile()));
+    this.vases.push(new Vase(3, 23, 55, 25, new Profile()));
   }
   private vases: Vase[];
 
