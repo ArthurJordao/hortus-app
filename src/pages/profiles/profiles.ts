@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { EditProfilePage } from "../edit-profile/edit-profile";
 
 export class Profile {
     public maxHumidity: number;
@@ -18,7 +19,8 @@ export class ProfilesPage {
   profiles: FirebaseListObservable<Profile[]>;
   showForm: boolean;
 
-  constructor(public navCtrl: NavController, private afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, private afd: AngularFireDatabase,
+              public modal: ModalController) {
     this.profiles = this.afd.list('/profiles');
     this.newProfile = new Profile();
   }
@@ -27,6 +29,14 @@ export class ProfilesPage {
     this.profiles.push(this.newProfile).then(() => {
       this.newProfile = new Profile();
     })
+  }
+  
+  editProfile(id: string) {
+    this.modal.create(EditProfilePage, {id: id}).present();
+  }
+
+  deleteProfile(id: string){
+    this.afd.object('/profiles/' + id).remove();
   }
 
 }

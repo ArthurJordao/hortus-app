@@ -19,21 +19,27 @@
     </ion-item>
     <ion-item>
       <ion-label>Humidade Máxima</ion-label>
-      <ion-input type="number" [(ngModel)]="newProfile.maxHumidity" name="maxHumidity"></ion-input>
+      <ion-input type="number" [(ngModel)]="newProfile.maxHumidity" name="maxHumidity" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Humidade Mínima</ion-label>
-      <ion-input type="number" [(ngModel)]="newProfile.minHumidity" name="minHumidity"></ion-input>
+      <ion-input type="number" [(ngModel)]="newProfile.minHumidity" name="minHumidity" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Iluminação Mínima</ion-label>
-      <ion-input type="number" [(ngModel)]="newProfile.minLuminosity" name="minLuminosity"></ion-input>
+      <ion-input type="number" [(ngModel)]="newProfile.minLuminosity" name="minLuminosity" required></ion-input>
     </ion-item>
     <button ion-button type="submit" block>Adiciona perfil</button>
   </form>
   <ion-list>
     <ion-item *ngFor="let profile of profiles | async">
       {{profile.name}}
+      <button ion-button clear color="secondary" icon-only item-end (click)="editProfile(profile.$key)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button color="danger" clear icon-only item-end (click)="deleteProfile(profile.$key)">
+        <ion-icon name="close"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
 
