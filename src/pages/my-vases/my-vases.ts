@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {VaseProvider} from "../../providers/vase/vase";
-import {Vase} from "../../models/vase";
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
 
 @Component({
   selector: 'my-vases',
   templateUrl: 'my-vases.html'
 })
 export class MyVasesPage {
-  vases: Vase[];
+  vases: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController, vaseProvider: VaseProvider) {
-    this.vases = vaseProvider.getVases();
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {
+    this.vases = afd.list('/vases');
   }
 
 }

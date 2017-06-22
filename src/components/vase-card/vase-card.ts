@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {Vase} from "../../models/vase";
 import { Profile } from "../../pages/profiles/profiles";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 
@@ -16,15 +15,20 @@ import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/databa
 export class VaseCardComponent implements OnInit {
   profiles: FirebaseListObservable<Profile[]>;
 
-  @Input() vase: Vase;
+  @Input() vase: any;
 
   constructor(private afd: AngularFireDatabase) {
   }
 
   ngOnInit(): void {
     this.profiles = this.afd.list('/profiles');
-    let profile: Profile = new Profile();
-    this.vase.profile = profile;
+    this.afd.object('/profiles/' + this.vase.profile_key).subscribe(profile => {
+      this.vase.profile = profile;
+    })
+  }
+
+  updateCurrentProfile() {
+    this.afd.object('/vases/' + this.vase.$key).update(this.vase);
   }
 
 }

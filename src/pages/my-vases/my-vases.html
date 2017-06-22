@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-md-6 col-xl-4 *ngFor="let vase of vases">
+      <ion-col col-md-6 col-xl-4 *ngFor="let vase of vases | async">
         <vase-card [vase]="vase"></vase-card>
       </ion-col>
     </ion-row>

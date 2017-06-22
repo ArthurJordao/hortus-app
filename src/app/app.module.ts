@@ -9,7 +9,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { VaseProvider } from '../providers/vase/vase';
 import { VaseCardComponent } from '../components/vase-card/vase-card';
 import { MyVasesPage } from "../pages/my-vases/my-vases";
 
@@ -54,8 +53,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VaseProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
