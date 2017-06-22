@@ -12,7 +12,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { VaseProvider } from '../providers/vase/vase';
 import { VaseCardComponent } from '../components/vase-card/vase-card';
 import { MyVasesPage } from "../pages/my-vases/my-vases";
-import { ProfileProvider } from '../providers/profile/profile';
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database"
@@ -56,8 +55,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VaseProvider,
-    ProfileProvider
+    VaseProvider
   ]
 })
 export class AppModule {}
