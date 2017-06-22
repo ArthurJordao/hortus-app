@@ -37,7 +37,7 @@
       <button ion-button clear color="secondary" icon-only item-end (click)="editProfile(profile.$key)">
         <ion-icon name="create"></ion-icon>
       </button>
-      <button ion-button color="danger" clear icon-only item-end (click)="deleteProfile(profile.$key)">
+      <button ion-button color="danger" clear icon-only item-end (click)="confirmDelete(profile.$key, profile.name)">
         <ion-icon name="close"></ion-icon>
       </button>
     </ion-item>
