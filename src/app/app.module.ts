@@ -15,6 +15,7 @@ import { MyVasesPage } from "../pages/my-vases/my-vases";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database"
 import { EditProfilePage } from "../pages/edit-profile/edit-profile";
+import { ProfileDetailsPage } from "../pages/profile-details/profile-details";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDhPG9j5ZCgqv0b9rjkUUoEJEP3HFicXOI",
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     MyVasesPage,
     TabsPage,
     VaseCardComponent,
-    EditProfilePage
+    EditProfilePage,
+    ProfileDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ export const firebaseConfig = {
     ContactPage,
     MyVasesPage,
     TabsPage,
-    EditProfilePage
+    EditProfilePage,
+    ProfileDetailsPage
   ],
   providers: [
     StatusBar,
