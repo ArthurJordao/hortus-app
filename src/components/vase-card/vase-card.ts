@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Profile } from "../../pages/profiles/profiles";
+import { Profile } from "../../models/profile";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 
 /**

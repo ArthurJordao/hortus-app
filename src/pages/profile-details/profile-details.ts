@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
-import { Profile } from "../profiles/profiles";
+import { Profile } from "../../models/profile";
 
 /**
  * Generated class for the ProfileDetailsPage page.

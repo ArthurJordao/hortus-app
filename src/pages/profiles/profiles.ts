@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
 import { ProfileDetailsPage } from "../profile-details/profile-details";
-
-export class Profile {
-    public maxHumidity: number;
-    public minHumidity: number;
-    public minLuminosity: number;
-    public name: string;
-}
+import { Profile } from "../../models/profile";
 
 @Component({
   selector: 'profiles',
