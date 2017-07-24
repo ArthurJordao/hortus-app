@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>Novo usuário</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <form (ngSubmit)="createUser()">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" required name="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input type="password" minlength="8" name="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Confirme a senha</ion-label>
+      <ion-input type="password" minlength="8" name="confirmPassword" [(ngModel)]="user.confirmPassword"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Criar usuário</button>
+    <button ion-button type="button" block (click)="loginPage()">Já sou cadastrado</button>
+  </form>
 
 </ion-content>

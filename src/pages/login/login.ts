@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireAuth } from "angularfire2/auth";
+import { User } from "../../models/user";
 
 /**
  * Generated class for the LoginPage page.
@@ -14,11 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  private user: User = new User();
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private angularFireAuth: AngularFireAuth) {  }
+
+  login() {
+    this.angularFireAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
   }
 
 }
