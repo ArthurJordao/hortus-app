@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from "angularfire2/auth";
 import { User } from "../../models/user";
+import { TabsPage } from "../tabs/tabs";
 
 /**
  * Generated class for the LoginPage page.
@@ -19,10 +20,25 @@ export class LoginPage {
   private user: User = new User();
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private angularFireAuth: AngularFireAuth) {  }
+              private angularFireAuth: AngularFireAuth, private toast: ToastController) {  }
 
   login() {
-    this.angularFireAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password);
+    this.angularFireAuth.auth.signInWithEmailAndPassword(this.user.email, this.user.password)
+      .then(() => {
+        this.navCtrl.setRoot(TabsPage);
+        this.toast.create({
+          message: "Logado com sucesso!",
+          duration: 3000
+        }).present();
+      })
+      .catch(() => {
+        this.toast.create({
+          message: "Email ou login errado",
+          duration: 3000
+        }).present();
+        this.user.password = "";
+      });
+    
   }
 
 }

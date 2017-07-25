@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { User } from "../../models/user";
 import { AngularFireAuth } from "angularfire2/auth";
 import { LoginPage } from "../login/login";
+import { TabsPage } from "../tabs/tabs";
 
 /**
  * Generated class for the RegisterPage page.
@@ -21,14 +22,29 @@ export class RegisterPage {
   confirmPassword: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private angularFireAuth: AngularFireAuth, private modal: ModalController) {
+    private angularFireAuth: AngularFireAuth, private toast: ToastController) {
   }
 
   loginPage() {
-    this.modal.create(LoginPage).present()
+    this.navCtrl.push(LoginPage);
   }
 
   createUser() {
-    this.angularFireAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password);
+    this.angularFireAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
+    .then(() => {
+      this.toast.create({
+        message: "Cadastrado com sucesso!",
+        duration: 300
+      }).present();
+      this.navCtrl.setRoot(TabsPage);
+    })
+    .catch(() => {
+      this.toast.create({
+        message: "Email já cadastrado",
+        duration: 3000
+      }).present();
+      this.user = new User();
+      this.confirmPassword = "";
+    })
   }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
-import { RegisterPage } from "../register/register";
 
 @Component({
   selector: 'my-vases',
@@ -10,13 +9,9 @@ import { RegisterPage } from "../register/register";
 export class MyVasesPage {
   vases: FirebaseListObservable<any[]>;
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase,
-              private modal: ModalController) {
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {
     this.vases = afd.list('/vases');
   }
 
-  createUser() {
-    this.modal.create(RegisterPage).present();
-  }
 
 }

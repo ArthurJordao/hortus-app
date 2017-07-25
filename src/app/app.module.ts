@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { ProfilesPage } from '../pages/profiles/profiles';
-import { ContactPage } from '../pages/contact/contact';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +17,7 @@ import { ProfileDetailsPage } from "../pages/profile-details/profile-details";
 import { RegisterPage } from "../pages/register/register";
 import { LoginPage } from "../pages/login/login";
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { MyProfilePage } from "../pages/my-profile/my-profile";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDhPG9j5ZCgqv0b9rjkUUoEJEP3HFicXOI",
@@ -32,7 +32,7 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     ProfilesPage,
-    ContactPage,
+    MyProfilePage,
     MyVasesPage,
     TabsPage,
     VaseCardComponent,
@@ -51,7 +51,7 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     ProfilesPage,
-    ContactPage,
+    MyProfilePage,
     MyVasesPage,
     TabsPage,
     ProfileDetailsPage,
