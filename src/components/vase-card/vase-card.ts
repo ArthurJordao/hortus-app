@@ -15,6 +15,8 @@ import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/databa
 export class VaseCardComponent implements OnInit {
   profiles: FirebaseListObservable<Profile[]>;
 
+  data: any;
+
   @Input() vase: any;
 
   constructor(private afd: AngularFireDatabase) {

@@ -10,15 +10,15 @@
       </ion-list-header>
       <ion-item>
         <ion-icon name="thermometer" color="danger" item-start></ion-icon>
-        Temperatura: {{vase.temperature}}ºC
+        Temperatura: {{vase.data[vase.last_data_position].temperature}}ºC
       </ion-item>
       <ion-item>
         <ion-icon color="assertive" name="sunny" item-start></ion-icon>
-        Iluminação: {{vase.luminosity}}
+        Iluminação: {{vase.data[vase.last_data_position].luminosity}}
       </ion-item>
       <ion-item>
         <ion-icon name="water" color="secondary" item-start></ion-icon>
-        Umidade {{vase.humidity}}%
+        Umidade {{vase.data[vase.last_data_position].humidity}}%
       </ion-item>
       <ion-item>
         <ion-label>Planta</ion-label>
