@@ -18,6 +18,7 @@ import { RegisterPage } from "../pages/register/register";
 import { LoginPage } from "../pages/login/login";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { MyProfilePage } from "../pages/my-profile/my-profile";
+import { FormsModule } from "@angular/forms";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDhPG9j5ZCgqv0b9rjkUUoEJEP3HFicXOI",
@@ -45,7 +46,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
