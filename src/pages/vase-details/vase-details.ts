@@ -15,8 +15,12 @@ import { Chart } from 'chart.js'
 })
 export class VaseDetailsPage {
   humidityChart: any;
+  luminosityChart: any;
+  temperatureChart: any;
   vase: any;
   @ViewChild("humidityCanvas") humidityCanvas;
+  @ViewChild("luminosityCanvas") luminosityCanvas;
+  @ViewChild("temperatureCanvas") temperatureCanvas;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, modal: ModalController) {
   }
@@ -24,22 +28,32 @@ export class VaseDetailsPage {
   ngAfterViewInit() {
     this.vase = this.navParams.get('vase');
     let humidityData = [];
+    let temperatureData = [];
+    let luminosityData = []
     let label = [];
     let position = 0;
     this.vase.data.forEach(element => {
-      label.push(position++);
+      label.push(++position);
       humidityData.push(parseFloat(element.humidity));
+      temperatureData.push(parseFloat(element.temperature));
+      luminosityData.push(parseFloat(element.luminosity));
     });
-    console.log(humidityData);
-    this.humidityChart = new Chart(this.humidityCanvas.nativeElement, {
+    this.humidityChart = this.drawChart(humidityData, label, this.humidityCanvas, "humidade");
+    this.luminosityChart = this.drawChart(luminosityData, label, this.luminosityCanvas, "luminosidade");
+    this.temperatureChart = this.drawChart(temperatureData, label, this.temperatureCanvas, "temperatura");
+  }
+
+
+  drawChart(data: any[], labels: any[], canvas, label): any {
+    return new Chart(canvas.nativeElement, {
 
       type: 'line',
       data: {
-        labels: label,
+        labels: labels,
         datasets: [
           {
-            label: "Humidade",
-            fill: true,
+            label: label,
+            fill: false,
             lineTension: 0.1,
             backgroundColor: "rgba(75,192,192,0.4)",
             borderColor: "rgba(75,192,192,1)",
@@ -56,13 +70,21 @@ export class VaseDetailsPage {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: humidityData,
+            data: data,
             spanGaps: false,
           }
         ]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
 
-    })
+    });
   }
-
 }
