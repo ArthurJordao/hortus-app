@@ -20,7 +20,7 @@ export class ProfileDetailsPage {
   ref: FirebaseObjectObservable<any>;
   id: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  public viewCrtl: ViewController, public afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public viewCtrl: ViewController, public afd: AngularFireDatabase) {
     this.id = this.navParams.get('id');
     this.ref = this.afd.object('/profiles/' + this.id);
     this.ref.subscribe(profile => {
@@ -29,7 +29,7 @@ export class ProfileDetailsPage {
   }
 
   exit() {
-    this.viewCrtl.dismiss();
+    this.viewCtrl.dismiss();
   }
 
 }
