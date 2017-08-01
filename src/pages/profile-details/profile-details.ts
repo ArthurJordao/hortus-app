@@ -28,7 +28,7 @@ export class ProfileDetailsPage {
     });
   }
 
-  fechar() {
+  exit() {
     this.viewCrtl.dismiss();
   }
 

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Chart } from 'chart.js'
 
 /**
@@ -22,7 +22,8 @@ export class VaseDetailsPage {
   @ViewChild("luminosityCanvas") luminosityCanvas;
   @ViewChild("temperatureCanvas") temperatureCanvas;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, modal: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private viewCtrl: ViewController) {
   }
 
   ngAfterViewInit() {
@@ -41,6 +42,10 @@ export class VaseDetailsPage {
     this.humidityChart = this.drawChart(humidityData, label, this.humidityCanvas, "humidade");
     this.luminosityChart = this.drawChart(luminosityData, label, this.luminosityCanvas, "luminosidade");
     this.temperatureChart = this.drawChart(temperatureData, label, this.temperatureCanvas, "temperatura");
+  }
+
+  exit() {
+    this.viewCtrl.dismiss();
   }
 
 
