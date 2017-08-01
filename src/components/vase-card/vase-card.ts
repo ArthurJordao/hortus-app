@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from "../../models/profile";
 import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { ModalController } from "ionic-angular";
+import { VaseDetailsPage } from "../../pages/vase-details/vase-details";
 
 /**
  * Generated class for the VaseCardComponent component.
@@ -19,7 +21,7 @@ export class VaseCardComponent implements OnInit {
 
   @Input() vase: any;
 
-  constructor(private afd: AngularFireDatabase) {
+  constructor(private afd: AngularFireDatabase, public modal: ModalController) {
   }
 
   ngOnInit(): void {
@@ -33,4 +35,8 @@ export class VaseCardComponent implements OnInit {
     this.afd.object('/vases/' + this.vase.$key).update(this.vase);
   }
 
+
+  details() {
+    this.modal.create(VaseDetailsPage, {vase: this.vase}).present();
+  }
 }
