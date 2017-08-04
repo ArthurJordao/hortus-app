@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from "../../models/profile";
-import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
+import { FirebaseListObservable, AngularFireDatabase, FirebaseObjectObservable } from "angularfire2/database";
 import { ModalController } from "ionic-angular";
 import { VaseDetailsPage } from "../../pages/vase-details/vase-details";
 
@@ -15,6 +15,7 @@ import { VaseDetailsPage } from "../../pages/vase-details/vase-details";
   templateUrl: 'vase-card.html'
 })
 export class VaseCardComponent implements OnInit {
+  currentProfile: FirebaseObjectObservable<any>;
   profiles: FirebaseListObservable<Profile[]>;
 
   data: any;
@@ -26,9 +27,7 @@ export class VaseCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.profiles = this.afd.list('/profiles');
-    this.afd.object('/profiles/' + this.vase.profile_key).subscribe(profile => {
-      this.vase.profile = profile;
-    })
+    this.currentProfile = this.afd.object('/profiles/' + this.vase.profile_key);
   }
 
   updateCurrentProfile() {

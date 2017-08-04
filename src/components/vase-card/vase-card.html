@@ -31,11 +31,11 @@
       </ion-list-header>
       <ion-item>
         <ion-icon name="sunny" color="assertive" item-start></ion-icon>
-        Iluminação min: {{vase.profile?.minLuminosity}}
+        Iluminação min: {{(currentProfile | async)?.minLuminosity}}
       </ion-item>
       <ion-item>
         <ion-icon color="secondary" name="water" item-start></ion-icon>
-        Umidade {{vase.profile?.minHumidity}}-{{vase.profile?.maxHumidity}}%
+        Umidade {{(currentProfile | async)?.minHumidity}}-{{(currentProfile | async)?.maxHumidity}}%
       </ion-item>
     </ion-list>
     <button ion-button clear color="secondary" item-end (click)="details()">Detalhes</button>
