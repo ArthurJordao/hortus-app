@@ -15,16 +15,16 @@
 
 <ion-content padding>
 
-  <form (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="email" required name="email" ngControl="email" [(ngModel)]="user.email"></ion-input>
+      <ion-input type="email" formControlName="email" name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Senha</ion-label>
-      <ion-input type="password" minlength="8" name="password" ngControl="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input type="password" formControlName="password" minlength="8" name="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-    <button ion-button type="submit" block>Login</button>
+    <button ion-button type="submit" [disabled]="!loginForm.valid" block>Login</button>
   </form>
 
 </ion-content>
