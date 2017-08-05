@@ -36,7 +36,7 @@
     <ion-item *ngIf="!registerForm.controls.confirmPassword.valid && (registerForm.controls.confirmPassword.dirty || registerForm.controls.confirmPassword.touched)">
       <p>Senhas não conferem.</p>
     </ion-item>
-    <button ion-button type="submit" disabled="registerForm.invalid" block>Criar usuário</button>
+    <button ion-button type="submit" [disabled]="registerForm.invalid" block>Criar usuário</button>
     <button ion-button type="button" color="secondary" block (click)="loginPage()">Já é Horteiro? Faça login aqui!</button>
   </form>
 
