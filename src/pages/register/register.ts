@@ -53,6 +53,6 @@ export class RegisterPage {
       }).present();
       this.user = new User();
       this.confirmPassword = "";
-    })
+    });
   }
 }
