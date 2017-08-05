@@ -40,6 +40,9 @@ export class RegisterPage {
   createUser() {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
       .then(() => {
+        this.angularFireAuth.authState.subscribe(data => {
+          data.sendEmailVerification();
+        })
         this.toast.create({
           message: "Cadastrado com sucesso!",
           duration: 300
