@@ -20,9 +20,15 @@
       <ion-label>Email</ion-label>
       <ion-input type="email" formControlName="email" name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
+    <ion-item *ngIf="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+      <p>Digite um email válido por favor.</p>
+    </ion-item>
     <ion-item>
       <ion-label>Senha</ion-label>
       <ion-input type="password" formControlName="password" minlength="8" name="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+      <p>Senha deve ter no mínimo 8 caracteres.</p>
     </ion-item>
     <button ion-button type="submit" [disabled]="!loginForm.valid" block>Login</button>
   </form>

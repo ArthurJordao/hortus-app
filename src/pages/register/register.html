@@ -19,13 +19,22 @@
       <ion-label>Email</ion-label>
       <ion-input type="email" formControlName="email" required name="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
+    <ion-item *ngIf="!registerForm.controls.email.valid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)">
+      <p>Digite um email válido por favor.</p>
+    </ion-item>
     <ion-item>
       <ion-label>Senha</ion-label>
       <ion-input type="password" formControlName="password" minlength="8" name="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
+    <ion-item *ngIf="!registerForm.controls.password.valid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)">
+      <p>Senha deve ter no mínimo 8 caracteres.</p>
+    </ion-item>
     <ion-item>
       <ion-label>Confirme a senha</ion-label>
       <ion-input type="password" formControlName="confirmPassword" minlength="8" name="confirmPassword" [(ngModel)]="user.confirmPassword"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!registerForm.controls.confirmPassword.valid && (registerForm.controls.confirmPassword.dirty || registerForm.controls.confirmPassword.touched)">
+      <p>Senhas não conferem.</p>
     </ion-item>
     <button ion-button type="submit" disabled="registerForm.invalid" block>Criar usuário</button>
     <button ion-button type="button" color="secondary" block (click)="loginPage()">Já é Horteiro? Faça login aqui!</button>
