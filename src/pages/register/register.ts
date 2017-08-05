@@ -39,20 +39,20 @@ export class RegisterPage {
 
   createUser() {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(this.user.email, this.user.password)
-    .then(() => {
-      this.toast.create({
-        message: "Cadastrado com sucesso!",
-        duration: 300
-      }).present();
-      this.navCtrl.setRoot(TabsPage);
-    })
-    .catch(() => {
-      this.toast.create({
-        message: "Email já cadastrado",
-        duration: 3000
-      }).present();
-      this.user = new User();
-      this.confirmPassword = "";
-    });
+      .then(() => {
+        this.toast.create({
+          message: "Cadastrado com sucesso!",
+          duration: 300
+        }).present();
+        this.navCtrl.setRoot(TabsPage);
+      })
+      .catch(() => {
+        this.toast.create({
+          message: "Email já cadastrado",
+          duration: 3000
+        }).present();
+        this.user = new User();
+        this.confirmPassword = "";
+      });
   }
 }
