@@ -6,4 +6,5 @@ export class Profile {
     public minHumidity: number;
     public minLuminosity: number;
     public name: string;
+    public image: string
 }

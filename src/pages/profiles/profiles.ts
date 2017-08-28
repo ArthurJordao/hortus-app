@@ -24,7 +24,7 @@ export class ProfilesPage {
   }
 
   getImageUrl(profile: Profile): string {
-    return "assets/img/" + profile.name.toLocaleLowerCase() + ".jpg";
+    return "assets/img/" + profile.image;
   }
 
 }

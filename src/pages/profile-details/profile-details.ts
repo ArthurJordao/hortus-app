@@ -33,7 +33,7 @@ export class ProfileDetailsPage {
   }
 
   getImageUrl(): string {
-    return "assets/img/" + this.profile.name.toLocaleLowerCase() + ".jpg";
+    return "assets/img/" + this.profile.image;
   }
 
 }
