@@ -32,4 +32,8 @@ export class ProfileDetailsPage {
     this.viewCtrl.dismiss();
   }
 
+  getImageUrl(): string {
+    return "assets/img/" + this.profile.name.toLocaleLowerCase() + ".jpg";
+  }
+
 }

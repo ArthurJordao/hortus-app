@@ -23,4 +23,8 @@ export class ProfilesPage {
     this.modal.create(ProfileDetailsPage, {id: id}).present()
   }
 
+  getImageUrl(profile: Profile): string {
+    return "assets/img/" + profile.name.toLocaleLowerCase() + ".jpg";
+  }
+
 }
