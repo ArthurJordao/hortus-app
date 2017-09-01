@@ -8,12 +8,11 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let profile of profiles | async">
+    <ion-item *ngFor="let profile of profiles | async" (click)="detailsProfile(profile.$key)">
       <ion-thumbnail item-start>
         <img style="height: auto" [src]="getImageUrl(profile)">
       </ion-thumbnail>
       <h2>{{profile.name}}</h2>
-      <button ion-button clear color="secondary" item-end (click)="detailsProfile(profile.$key)">Detalhes</button>
     </ion-item>
   </ion-list>
 
