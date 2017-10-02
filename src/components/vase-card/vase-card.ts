@@ -38,4 +38,9 @@ export class VaseCardComponent implements OnInit {
   details() {
     this.modal.create(VaseDetailsPage, {vase: this.vase}).present();
   }
+
+  get vaseNumber() {
+    return parseInt(this.vase.$key) + 1;
+  }
+
 }

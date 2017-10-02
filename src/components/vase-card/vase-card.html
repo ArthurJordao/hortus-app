@@ -2,8 +2,14 @@
 <ion-card>
   <ion-card-content>
     <ion-card-title>
-      Vaso {{vase.$key}}
+      Vaso {{vaseNumber}}
     </ion-card-title>
+    <ion-item style="font-size: 1.35em">
+        <ion-label>Planta</ion-label>
+        <ion-select [(ngModel)]="vase.profile_key" (ngModelChange)="updateCurrentProfile()">
+          <ion-option *ngFor="let profile of profiles | async" [value]="profile.$key">{{profile.name}}</ion-option>
+        </ion-select>
+      </ion-item>
     <ion-list>
       <ion-list-header>
         Condições atuais:
@@ -20,15 +26,13 @@
         <ion-icon name="water" color="secondary" item-start></ion-icon>
         Umidade {{vase.data[vase.last_data_position].humidity}}%
       </ion-item>
-      <ion-item>
-        <ion-label>Planta</ion-label>
-        <ion-select [(ngModel)]="vase.profile_key" (ngModelChange)="updateCurrentProfile()">
-          <ion-option *ngFor="let profile of profiles | async" [value]="profile.$key">{{profile.name}}</ion-option>
-        </ion-select>
-      </ion-item>
       <ion-list-header>
         Condições ideais:
       </ion-list-header>
+      <ion-item>
+        <ion-icon name="thermometer" color="danger" item-start></ion-icon>
+        Temperatura {{(currentProfile | async)?.minTemperature}}-{{(currentProfile | async)?.maxTemperature}}%
+      </ion-item>
       <ion-item>
         <ion-icon name="sunny" color="assertive" item-start></ion-icon>
         Iluminação min: {{(currentProfile | async)?.minLuminosity}}
